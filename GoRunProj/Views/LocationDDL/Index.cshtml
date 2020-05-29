@@ -1,0 +1,11 @@
+﻿@model GoRunProj.Models.RunningSpot
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Bind Data into DropDown List (Select Option) Element in MVC</h1>
+<h2>Using asp.net core</h2>
+<hr/>
+<select asp-for="Id" asp-items="@(new SelectList(@ViewBag.message,"Id", "LocationName"))">
+
+</select>

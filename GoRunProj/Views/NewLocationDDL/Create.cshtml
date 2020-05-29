@@ -1,0 +1,64 @@
+﻿@model GoRunProj.Models.NewLocationDDL
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Select from the list</h1>
+
+<h4>The Selected Will Be Updated At the Chart</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="LocationName" class="control-label"></label>
+                
+
+                <select id="select1" asp-for="LocationName">
+                    <option selected disabled>Select</option>
+                    <option>Chollas Lake</option>
+                    <option>Mission Bay Park</option>
+                    <option>Mission Trails</option>
+                    <option>Fiesta Island</option>
+                    <option>Balboa Park</option>
+                    <option>Lake Murray</option>
+                </select>
+                <span asp-validation-for="LocationName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LocationType" class="control-label"></label>
+                @*<input asp-for="LocationType" class="form-control" />*@
+                <select id="select2" asp-for="LocationType">
+                    <option selected disabled>Select</option>
+                    <option>Lake</option>
+                    <option>Beach</option>
+                    <option>Trail</option>
+                    <option>Park</option>
+                    <option>Public</option>
+                    <option>Other</option>
+                </select>
+                <span asp-validation-for="LocationType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Choice" class="control-label"></label>
+                
+                <select id="select3" asp-for="Choice">
+                    <option selected disabled>Select</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+                <span asp-validation-for="Choice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+            <h4>@ViewBag.message</h4>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
