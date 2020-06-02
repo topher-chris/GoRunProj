@@ -1,23 +1,10 @@
-﻿<h1> Popular Running Scenery</h1>
-<div class="chart-container" style="position: relative; height:30vh; width:60vw">
-    <canvas id="chart"></canvas>
-</div>
-<!--       <div class="card-footer small text-muted" style="background-color:#ffd6cc;">...</div>  -->
+﻿
 
-@section scripts{
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" type="text/javascript"></script>
-
-
-
-
-    <!--start of barchart-->
-    <script>
-        $(document).ready(setup);
-
-        function setup() {
+{
+            
 
             var option = {
-                type: "GET",
+                    type: "GET",
                 url: "/barchart/data",
                 contentType: "application/json;charset=utf-8",
                 datatype: "json",
@@ -27,16 +14,16 @@
         }
 
         function data_arrived(data) {
-            console.log(data);
+                    console.log(data);
             var x_data = data[0];
             var y_data = data[1];
 
             var graph_data = {
-                labels: x_data,
+                    labels: x_data,
                 datasets: [
                     {
 
-                        label: 'Popular Scenery',
+                    label: 'Popular Scenery',
                         data: y_data,
                         fill: true,
                         backgroundColor: ['rgba(242,166,54,0.5)', 'rgba(145,65,72,0.5)', 'rgba(74,25,92,0.5)', 'rgba(140,60,55,0.5)', 'rgba(147,0,255,0.5)', 'rgba(0, 0, 255, 0.2)', 'rgba(100, 255, 255, 0.2)'],
@@ -45,28 +32,28 @@
                     }
                 ]
             };
-            var panel1 = $('#chart').get(0).getContext("2d");
-            var chart = new Chart(
+            var panel1 = document.getElementById("myChart").getContext('2d');
+            var chart1 = new Chart(
                 panel1,
                 {
                     type: 'bar',
                     data: graph_data,
                     options: {
-                        maintainAspectRatio: false,
+                    maintainAspectRatio: false,
                         scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
+                    yAxes: [{
+                    ticks: {
+                    beginAtZero: true
                                 }
                             }]
                         }
                     },
                     legend: {
-                        display: true,
+                    display: true,
                         position: "right",
                         fullWidth: true,
                         labels: {
-                            fontSize: 20,
+                    fontSize: 20,
                             fontColor: '#000'
                         }
                     }
@@ -74,6 +61,6 @@
             );
         }  //end of function
 
-    </script>
+   
 
-}
+

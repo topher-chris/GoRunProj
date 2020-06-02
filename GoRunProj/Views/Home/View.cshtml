@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <title>Bar Chart</title>
+</head>
+<body>
+    <div class="container">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+        let myChart = document.getElementById('myChart').getContext('2d');
+
+        let massPopChart = new Chart(myChart, {
+            typ: 'bar',
+            data: {
+                labels: ['Boston', 'San Diego', 'Vegas', 'Lowell'],
+                datasets: [{
+                    label: 'Population',
+                    data: [
+                        33333,
+                        22222,
+                        12322,
+                        53210
+                    ]
+                }]
+            },
+            options: {}
+        });
+    </script>
+</body>
+</html>
